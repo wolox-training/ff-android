@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/vWoloxCover"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_cover_height"
+        android:background="@drawable/login_cover"
+        android:src="@drawable/green_gradient"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vWoloxLogo"
+        android:layout_width="@dimen/wolox_logo_width"
+        android:layout_height="@dimen/wolox_logo_height"
+        android:adjustViewBounds="false"
+        android:src="@drawable/wolox_logo"
+        android:layout_marginTop="@dimen/wolox_logo_margin_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vWoloxCover" />
+
+    <EditText
+        android:id="@+id/vEmailField"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_field_height"
+        android:layout_marginHorizontal="@dimen/login_field_horizontal_margin"
+        android:layout_marginVertical="@dimen/login_field_vertical_margin"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="@string/login_email_text"
+        app:layout_constraintTop_toBottomOf="@+id/vWoloxLogo" />
+
+    <EditText
+        android:id="@+id/vPasswordField"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_field_height"
+        android:layout_marginHorizontal="@dimen/login_field_horizontal_margin"
+        android:layout_marginVertical="@dimen/login_field_vertical_margin"
+        android:hint="@string/login_password_text"
+        android:fontFamily="sans-serif-condensed"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/vEmailField" />
+    
+    <Button
+        android:id="@+id/vLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_marginHorizontal="@dimen/login_button_horizontal_margin"
+        android:layout_marginVertical="@dimen/login_button_vertical_margin"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/login_text"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/vPasswordField"
+        />
+
+    <Button
+        android:id="@+id/vSignInButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_marginHorizontal="@dimen/login_button_horizontal_margin"
+        android:layout_marginVertical="@dimen/login_button_vertical_margin"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/signin_text"
+        android:background="@color/woloxBlue"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/vLoginButton"/>
+    
+    <TextView
+        android:id="@+id/vTermsText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/terms"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSignInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

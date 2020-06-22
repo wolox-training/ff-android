@@ -7,7 +7,7 @@ apply plugin: 'jacoco-android'
 apply from: 'keystore.gradle'
 apply from: '../jacoco.gradle'
 apply from: '../quality.gradle'
-apply from: '../scripts/warp/warp_task.gradle'
+// apply from: '../scripts/warp/warp_task.gradle'
 apply from: '../scripts/sanity/sanity_task.gradle'
 
 idea {
@@ -108,6 +108,8 @@ buildscript {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Kotlin

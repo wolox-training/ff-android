@@ -13,8 +13,17 @@
     <string name="fragment_example_username">Username</string>
     <string name="fragment_example_favourite_color">Your favourite color</string>
     <string name="fragment_example_login">Login</string>
-	<string name="fragment_request_search">Search</string>
+    <string name="fragment_request_search">Search</string>
     <string name="fragment_request_post_id">Post id</string>
     <string name="fragment_request_invalid_input">Invalid input, please enter a valid id.</string>
+
+    <!-- Login -->
+    <string name="login_email_text">me@email.com</string>
+    <string name="login_password_text">Password</string>
+    <string name="login_text">LOG IN</string>
+    <string name="signin_text">SIGN IN</string>
+    <string name="terms">By joining you agree to our <u>Terms &amp; Conditions</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
