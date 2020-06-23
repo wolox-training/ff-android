@@ -62,13 +62,13 @@
         />
 
     <Button
-        android:id="@+id/vSignInButton"
+        android:id="@+id/vSignUpButton"
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_button_height"
         android:layout_marginHorizontal="@dimen/login_button_horizontal_margin"
         android:layout_marginVertical="@dimen/login_button_vertical_margin"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/signin_text"
+        android:text="@string/signup_text"
         android:background="@color/woloxBlue"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@+id/vLoginButton"/>
@@ -82,7 +82,7 @@
         android:gravity="bottom|center_horizontal"
         android:text="@string/terms"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSignInButton"
+        app:layout_constraintTop_toBottomOf="@id/vSignUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
