@@ -6,7 +6,7 @@
 
     <gradient
         android:angle="90"
-        android:startColor="@color/woloxBlueTransparent"
-        android:endColor="@color/woloxGreenTransparent"
+        android:startColor="@color/woloxGreenTransparent"
+        android:endColor="@color/woloxBlueTransparent"
         android:type="linear" />
 </shape>
