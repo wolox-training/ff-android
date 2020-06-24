@@ -133,4 +133,5 @@ gradle-app.setting
 
 # WARP Files
 app/src/main/res/drawable/*
+app/src/main/res/drawable*
 !app/src/main/res/drawable/*.xml
