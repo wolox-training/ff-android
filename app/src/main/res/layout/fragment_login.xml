@@ -71,7 +71,7 @@
         android:background="@color/woloxBlue"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@+id/vLoginButton"/>
-    
+
     <TextView
         android:id="@+id/vTermsText"
         android:layout_width="match_parent"
