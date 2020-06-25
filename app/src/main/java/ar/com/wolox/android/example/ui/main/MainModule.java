@@ -8,7 +8,4 @@ public abstract class MainModule {
 
     @ContributesAndroidInjector
     protected abstract MainActivity mainActivity();
-
-    @ContributesAndroidInjector
-    protected abstract MainFragment mainFragment();
 }
