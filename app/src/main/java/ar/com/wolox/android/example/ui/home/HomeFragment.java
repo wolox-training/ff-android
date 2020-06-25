@@ -6,7 +6,7 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 /**
  HomeFragment
  */
-public class HomeFragment extends WolmoFragment {
+public class HomeFragment extends WolmoFragment<HomePresenter> {
 
     private static HomeFragment instance;
 
@@ -18,9 +18,7 @@ public class HomeFragment extends WolmoFragment {
     }
 
     @Override
-    public void init() {
-
-    }
+    public void init() { }
 
     @Override
     public int layout() {

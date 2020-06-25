@@ -15,7 +15,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
     private TextView email;
     private TextView password;
     private Button loginButton;
-    private Button signupButton;
+    private Button signUpButton;
     private TextView termsAndConditions;
 
     public static LoginFragment newInstance() {
@@ -30,7 +30,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
         email = getView().findViewById(R.id.vEmailField);
         password = getView().findViewById(R.id.vPasswordField);
         loginButton = getView().findViewById(R.id.vLoginButton);
-        signupButton = getView().findViewById(R.id.vSignUpButton);
+        signUpButton = getView().findViewById(R.id.vSignUpButton);
         termsAndConditions = getView().findViewById(R.id.vTermsText);
     }
 

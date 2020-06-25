@@ -2,7 +2,6 @@ package ar.com.wolox.android.example.ui.login;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
@@ -10,12 +9,14 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 /** <b>LoginPresenter</b>. */
 public class LoginPresenter extends BasePresenter<LoginView> {
 
-    private final UserSession userSession;
+    private UserSession userSession;
 
     @Inject
-    public LoginPresenter(final UserSession userSession) {
+    public LoginPresenter(UserSession userSession) {
         this.userSession = userSession;
     }
+
+    private final String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 
     /**
      * @param email email field, must not be empty
@@ -34,11 +35,13 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 getView().showInvalidEmailError();
             }
         } else {
+            userSession.setUsername(email);
+            userSession.setPassword(password);
             getView().goToHomeScreen();
         }
     }
 
-    public void onSignupClicked() {
+    public void onSignUpButtonClicked() {
         // TODO
     }
 
@@ -48,7 +51,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private List<LoginError> validateLoginCredentials(String email, String password) {
         List<LoginError> errors = new ArrayList<>();
-        String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         if (email.isEmpty()) {
             errors.add(LoginError.EMPTY_EMAIL);
         } else if (!email.matches(emailRegex)) {
