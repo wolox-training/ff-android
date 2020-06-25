@@ -105,9 +105,13 @@ buildscript {
     ext.assertj_version = '3.9.0'
     ext.android_ktx_version = '1.1.0'
     ext.mockito_kotlin_version = "2.2.0"
+    ext.androidx_legacy_support = "1.0.0"
+    ext.androidx_appcompat = "1.1.0"
 }
 
 dependencies {
+    implementation "androidx.legacy:legacy-support-v4:$androidx_legacy_support"
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Kotlin
