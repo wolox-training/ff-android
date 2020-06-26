@@ -22,7 +22,9 @@ public class MainActivity extends WolmoActivity {
     }
 
     @Override
-    protected void init() { }
+    protected void init() {
+        checkUserSession();
+    }
 
     private void checkUserSession() {
         if (userSession.isUserLogged()) {
