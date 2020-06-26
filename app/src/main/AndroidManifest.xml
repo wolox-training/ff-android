@@ -15,6 +15,13 @@
 
         <activity
             android:name=".example.ui.login.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".example.ui.home.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".example.ui.main.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -23,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".example.ui.viewpager.ViewPagerActivity"
             android:screenOrientation="portrait" />
