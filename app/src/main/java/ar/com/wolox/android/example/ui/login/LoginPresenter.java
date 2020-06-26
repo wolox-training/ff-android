@@ -1,5 +1,7 @@
 package ar.com.wolox.android.example.ui.login;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -22,22 +24,16 @@ public class LoginPresenter extends BasePresenter<LoginView> {
      * @param email email field, must not be empty
      * @param password password field, must not be empty
      */
-    public void onLoginButtonClicked(String email, String password) {
+    public void onLoginButtonClicked(@NotNull String email, @NotNull String password) {
         List<LoginError> errors = validateLoginCredentials(email, password);
-        if (!errors.isEmpty()) {
-            if (errors.contains(LoginError.EMPTY_EMAIL)) {
-                getView().showEmptyEmailError();
-            }
-            if (errors.contains(LoginError.EMPTY_PASSWORD)) {
-                getView().showEmptyPasswordError();
-            }
-            if (errors.contains(LoginError.INVALID_EMAIL)) {
-                getView().showInvalidEmailError();
-            }
-        } else {
+        if (errors.isEmpty()) {
             userSession.setUsername(email);
             userSession.setPassword(password);
             getView().goToHomeScreen();
+        } else {
+            for (LoginError error : errors) {
+                error.callAction(getView());
+            }
         }
     }
 
@@ -49,7 +45,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         // TODO
     }
 
-    private List<LoginError> validateLoginCredentials(String email, String password) {
+    private List<LoginError> validateLoginCredentials(@NotNull String email, @NotNull String password) {
         List<LoginError> errors = new ArrayList<>();
         if (email.isEmpty()) {
             errors.add(LoginError.EMPTY_EMAIL);
@@ -63,8 +59,22 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     private enum LoginError {
-        EMPTY_EMAIL,
-        EMPTY_PASSWORD,
-        INVALID_EMAIL
+        EMPTY_EMAIL {
+            public void callAction(LoginView view) {
+                view.showEmptyEmailError();
+            }
+        },
+        EMPTY_PASSWORD {
+            public void callAction(LoginView view) {
+                view.showEmptyPasswordError();
+            }
+        },
+        INVALID_EMAIL {
+            public void callAction(LoginView view) {
+                view.showInvalidEmailError();
+            }
+        };
+
+        public abstract void callAction(LoginView view);
     }
 }
