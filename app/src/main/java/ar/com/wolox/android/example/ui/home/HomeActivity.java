@@ -1,5 +1,8 @@
 package ar.com.wolox.android.example.ui.home;
 
+import android.content.Context;
+import android.content.Intent;
+
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
@@ -15,5 +18,10 @@ public class HomeActivity extends WolmoActivity {
     @Override
     protected void init() {
         replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance());
+    }
+
+    public static final void start(Context context) {
+        Intent intent = new Intent(context, HomeActivity.class);
+        context.startActivity(intent);
     }
 }

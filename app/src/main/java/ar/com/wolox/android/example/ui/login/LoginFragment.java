@@ -53,14 +53,12 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
 
     @Override
     public void goToHomeScreen() {
-        Intent intent = new Intent(getActivity(), HomeActivity.class);
-        startActivity(intent);
+        HomeActivity.start(getContext());
     }
 
     @Override
     public void goToSignUpScreen() {
-        Intent intent = new Intent(getActivity(), SignUpActivity.class);
-        startActivity(intent);
+        SignUpActivity.start(getContext());
     }
 
     @Override
