@@ -132,6 +132,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 # WARP Files
-app/src/main/res/drawable/*
-app/src/main/res/drawable*
-!app/src/main/res/drawable/*.xml
+app/src/main/res/drawable-hdpi
+app/src/main/res/drawable-xhdpi
+app/src/main/res/drawable-xxhdpi
+app/src/main/res/drawable-xxxhdpi

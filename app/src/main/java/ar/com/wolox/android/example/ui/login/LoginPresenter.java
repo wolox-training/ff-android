@@ -11,6 +11,7 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 /** <b>LoginPresenter</b>. */
 public class LoginPresenter extends BasePresenter<LoginView> {
 
+    private final String baseURL = "http://www.wolox.com.ar";
     private UserSession userSession;
 
     @Inject
@@ -38,11 +39,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void onSignUpButtonClicked() {
-        // TODO
+        getView().goToSignUpScreen();
     }
 
     public void onTermsAndConditionsClicked() {
-        // TODO
+        getView().navigateToURL(baseURL);
     }
 
     private List<LoginError> validateLoginCredentials(@NotNull String email, @NotNull String password) {

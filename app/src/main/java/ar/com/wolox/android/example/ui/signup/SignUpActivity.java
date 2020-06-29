@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example.ui.home;
+package ar.com.wolox.android.example.ui.signup;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,9 +7,10 @@ import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
 /**
- * HomeActivity
+ * SignUpActivity
  */
-public class HomeActivity extends WolmoActivity {
+public class SignUpActivity extends WolmoActivity {
+
     @Override
     protected int layout() {
         return R.layout.activity_base;
@@ -17,11 +18,11 @@ public class HomeActivity extends WolmoActivity {
 
     @Override
     protected void init() {
-        replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance());
+        replaceFragment(R.id.vActivityBaseContent, SignUpFragment.newInstance());
     }
 
     public static final void start(Context context) {
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, SignUpActivity.class);
         context.startActivity(intent);
     }
 }
