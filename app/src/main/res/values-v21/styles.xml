@@ -14,4 +14,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Custom progress bar -->
+    <style name="LoginProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressBackgroundTint">@color/woloxBlue</item>
+        <item name="android:progressTint">@color/woloxGreen</item>
+        <item name="android:progress">0</item>
+    </style>
+
 </resources>

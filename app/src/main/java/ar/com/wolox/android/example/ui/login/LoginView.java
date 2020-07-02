@@ -10,4 +10,9 @@ public interface LoginView {
     void showEmptyEmailError();
     void showEmptyPasswordError();
     void showInvalidEmailError();
+    void showProgressBar();
+    void hideProgressBar();
+    void showCredentialsError();
+    void showConnectionError();
+    void showUnknownError();
 }
