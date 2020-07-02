@@ -88,7 +88,7 @@
         android:id="@+id/vProgressBar"
         style="@style/LoginProgressBar"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/login_progress_bar_height"
         android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent" />
 
