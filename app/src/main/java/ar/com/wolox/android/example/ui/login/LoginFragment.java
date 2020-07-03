@@ -67,9 +67,9 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
     }
 
     @Override
-    public void navigateToURL(String baseUrl) {
+    public void navigateToTermsURL() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(baseUrl));
+        intent.setData(Uri.parse(getString(R.string.woloxUrl)));
         startActivity(intent);
     }
 
