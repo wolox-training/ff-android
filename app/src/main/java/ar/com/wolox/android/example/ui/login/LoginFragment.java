@@ -17,13 +17,12 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 public class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 
     private static LoginFragment instance;
-    private final int progress = 75;
     private TextView email;
     private TextView password;
     private Button loginButton;
     private Button signUpButton;
     private TextView termsAndConditions;
-    private ProgressBar loginProgressBar;
+    private ProgressBar loadingProgressBar;
 
     public static LoginFragment newInstance() {
         if (instance == null) {
@@ -39,7 +38,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
         loginButton = getView().findViewById(R.id.vLoginButton);
         signUpButton = getView().findViewById(R.id.vSignUpButton);
         termsAndConditions = getView().findViewById(R.id.vTermsText);
-        loginProgressBar = getView().findViewById(R.id.vProgressBar);
+        loadingProgressBar = getActivity().findViewById(R.id.vProgressBar);
     }
 
     @Override
@@ -91,14 +90,12 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
 
     @Override
     public void showProgressBar() {
-        loginProgressBar.setVisibility(View.VISIBLE);
-        loginProgressBar.setProgress(progress);
+        loadingProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar() {
-        loginProgressBar.setVisibility(View.INVISIBLE);
-        loginProgressBar.setProgress(0);
+        loadingProgressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
