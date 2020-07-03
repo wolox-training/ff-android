@@ -1,7 +1,5 @@
 package ar.com.wolox.android.example.ui.login;
 
-import androidx.annotation.NonNull;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
