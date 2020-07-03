@@ -1,5 +1,7 @@
 package ar.com.wolox.android.example.ui.login;
 
+import androidx.annotation.NonNull;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -18,7 +20,6 @@ import retrofit2.Response;
 /** <b>LoginPresenter</b>. */
 public class LoginPresenter extends BasePresenter<LoginView> {
 
-    private final String woloxURL = "http://www.wolox.com.ar";
     private UserSession userSession;
     private RetrofitServices retrofitServices;
 
@@ -50,7 +51,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void onTermsAndConditionsClicked() {
-        getView().navigateToURL(woloxURL);
+        getView().navigateToTermsURL();
     }
 
     private List<LoginError> validateLoginCredentialsFormat(@NotNull String email, @NotNull String password) {
@@ -66,12 +67,12 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         return errors;
     }
 
-    private void authenticate(String email, String password) {
+    private void authenticate(@NotNull String email, @NotNull String password) {
         AuthenticationService authenticationService = retrofitServices.getService(AuthenticationService.class);
         authenticationService.findUser(email).enqueue(login(email, password));
     }
 
-    private Callback<List<User>> login(String email, String password) {
+    private Callback<List<User>> login(@NotNull String email, @NotNull String password) {
         return new Callback<List<User>>() {
 
             @Override

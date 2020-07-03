@@ -6,7 +6,7 @@ package ar.com.wolox.android.example.ui.login;
 public interface LoginView {
     void goToHomeScreen();
     void goToSignUpScreen();
-    void navigateToURL(String baseUrl);
+    void navigateToTermsURL();
     void showEmptyEmailError();
     void showEmptyPasswordError();
     void showInvalidEmailError();
