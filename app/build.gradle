@@ -107,6 +107,7 @@ buildscript {
     ext.mockito_kotlin_version = "2.2.0"
     ext.androidx_legacy_support = "1.0.0"
     ext.androidx_appcompat = "1.1.0"
+    ext.retrofit_version = "2.9.0"
 }
 
 dependencies {
@@ -149,4 +150,7 @@ dependencies {
     // Android KTX
     implementation "androidx.core:core-ktx:$android_ktx_version"
     implementation "androidx.fragment:fragment-ktx:$android_ktx_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 }

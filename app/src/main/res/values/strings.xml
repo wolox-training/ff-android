@@ -23,6 +23,7 @@
     <string name="login_text">LOG IN</string>
     <string name="signup_text">SIGN UP</string>
     <string name="terms">By joining you agree to our <u>Terms &amp; Conditions</u></string>
+    <string name="woloxUrl">http://www.wolox.com.ar</string>
 
     <!-- Validation errors -->
     <string name="empty_email_error">Email must not be empty!</string>
