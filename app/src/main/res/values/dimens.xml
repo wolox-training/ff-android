@@ -58,4 +58,8 @@
     <dimen name="login_button_horizontal_margin">16dp</dimen>
     <dimen name="login_button_vertical_margin">24dp</dimen>
 
+    <!-- Loading progress bar -->
+    <dimen name="loading_progress_bar_height">10dp</dimen>
+    <dimen name="loading_progress_bar_z">5dp</dimen>
+
 </resources>

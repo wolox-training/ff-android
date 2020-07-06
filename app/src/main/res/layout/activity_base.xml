@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/vActivityBaseContent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <ProgressBar
+   	 android:id="@+id/vProgressBar"
+   	 style="@style/LoadingProgressBar"
+   	 android:translationZ="@dimen/loading_progress_bar_z"
+   	 android:layout_width="match_parent"
+   	 android:layout_height="@dimen/loading_progress_bar_height"
+     	 android:visibility="invisible"
+   	 app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
