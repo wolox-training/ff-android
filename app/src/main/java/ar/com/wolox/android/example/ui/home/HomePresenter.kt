@@ -1,6 +1,6 @@
 package ar.com.wolox.android.example.ui.home
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
+import javax.inject.Inject
 
-class HomePresenter : BasePresenter<HomeView>() {
-}
+class HomePresenter @Inject constructor() : BasePresenter<HomeView>()

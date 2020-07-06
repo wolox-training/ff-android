@@ -15,8 +15,10 @@ class HomeActivity : WolmoActivity() {
         replaceFragment(R.id.vActivityBaseContent, HomeFragment.instance)
     }
 
-    fun start(context: Context) {
-        val intent = Intent(context, HomeActivity::class.java)
-        startActivity(intent)
+    companion object {
+        fun Context.start() {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
