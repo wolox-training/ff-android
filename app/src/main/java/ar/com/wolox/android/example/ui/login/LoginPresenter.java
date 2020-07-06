@@ -2,6 +2,7 @@ package ar.com.wolox.android.example.ui.login;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -72,7 +73,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private Callback<List<User>> login(@NotNull String email, @NotNull String password) {
         return new Callback<List<User>>() {
-
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> matchingUsers = response.body();
@@ -80,12 +80,20 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                     userSession.setUsername(email);
                     userSession.setPassword(password);
                     getView().goToHomeScreen();
+                } else {
+                    getView().showCredentialsError();
                 }
+                getView().hideProgressBar();
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                // TODO - Errors card pending
+                if (t instanceof IOException) {
+                    getView().hideProgressBar();
+                    getView().showConnectionError();
+                } else {
+                    getView().showUnknownError();
+                }
             }
         };
     }

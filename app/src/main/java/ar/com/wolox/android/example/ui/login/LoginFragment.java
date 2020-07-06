@@ -2,8 +2,11 @@ package ar.com.wolox.android.example.ui.login;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
@@ -19,6 +22,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
     private Button loginButton;
     private Button signUpButton;
     private TextView termsAndConditions;
+    private ProgressBar loadingProgressBar;
 
     public static LoginFragment newInstance() {
         if (instance == null) {
@@ -34,6 +38,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
         loginButton = getView().findViewById(R.id.vLoginButton);
         signUpButton = getView().findViewById(R.id.vSignUpButton);
         termsAndConditions = getView().findViewById(R.id.vTermsText);
+        loadingProgressBar = getActivity().findViewById(R.id.vProgressBar);
     }
 
     @Override
@@ -81,5 +86,35 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements Logi
     @Override
     public void showEmptyPasswordError() {
         password.setError(getString(R.string.empty_password_error));
+    }
+
+    @Override
+    public void showProgressBar() {
+        loadingProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        loadingProgressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void showCredentialsError() {
+        showToastNotification(R.string.login_credentials_error);
+    }
+
+    @Override
+    public void showConnectionError() {
+        showToastNotification(R.string.internet_connection_error);
+    }
+
+    @Override
+    public void showUnknownError() {
+        showToastNotification(R.string.login_unknown_error);
+    }
+
+    private void showToastNotification(int messageId) {
+        Toast toast = Toast.makeText(this.getContext(), messageId, Toast.LENGTH_LONG);
+        toast.show();
     }
 }
