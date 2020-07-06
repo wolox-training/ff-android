@@ -7,13 +7,13 @@
     android:layout_height="match_parent">
 
     <ProgressBar
-    android:id="@+id/vProgressBar"
-    style="@style/LoadingProgressBar"
-    android:translationZ="@dimen/loading_progress_bar_z"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/loading_progress_bar_height"
-    android:visibility="invisible"
-    app:layout_constraintTop_toTopOf="parent" />
+   	 android:id="@+id/vProgressBar"
+   	 style="@style/LoadingProgressBar"
+   	 android:translationZ="@dimen/loading_progress_bar_z"
+   	 android:layout_width="match_parent"
+   	 android:layout_height="@dimen/loading_progress_bar_height"
+     	 android:visibility="invisible"
+   	 app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
