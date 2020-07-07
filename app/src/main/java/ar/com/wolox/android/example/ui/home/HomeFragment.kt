@@ -5,13 +5,11 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 
 class HomeFragment : WolmoFragment<HomePresenter>() {
 
-    override fun init() { }
+    override fun layout() = R.layout.fragment_home
 
-    override fun layout(): Int {
-        return R.layout.fragment_home
-    }
+    override fun init() {}
 
     companion object {
-        val instance = HomeFragment()
+        fun newInstance() = HomeFragment()
     }
 }

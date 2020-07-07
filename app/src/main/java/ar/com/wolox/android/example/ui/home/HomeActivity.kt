@@ -7,18 +7,16 @@ import ar.com.wolox.wolmo.core.activity.WolmoActivity
 
 class HomeActivity : WolmoActivity() {
 
-    override fun layout(): Int {
-        return R.layout.activity_base
-    }
+    override fun layout() = R.layout.activity_base
 
     override fun init() {
-        replaceFragment(R.id.vActivityBaseContent, HomeFragment.instance)
+        replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance())
     }
 
     companion object {
-        fun Context.start() {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+        fun start(context: Context) {
+            val intent = Intent(context, HomeActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }
