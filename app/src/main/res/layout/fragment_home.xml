@@ -59,9 +59,9 @@
         android:layout_marginBottom="@dimen/spacing_tiniest" />
 
     <androidx.viewpager.widget.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/vHomeViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/vTabLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
