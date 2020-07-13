@@ -9,5 +9,6 @@
     <color name="woloxGreen">#90BF5E</color>
     <color name="woloxBlueTransparent">#CC35AFDB</color>
     <color name="woloxGreenTransparent">#CC90BF53</color>
-    <color name="HomeNavigationBackground">#FDFBFA</color>
+    <color name="homeNavigationBackground">#FDFBFA</color>
+    <color name="homeTabDivisionLine">#808080</color>
 </resources>
