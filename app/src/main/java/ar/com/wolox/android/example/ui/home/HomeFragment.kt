@@ -19,17 +19,22 @@ class HomeFragment : WolmoFragment<HomePresenter>(), HomeView {
 
     override fun init() {
         val adapter = HomeFragmentAdapter(activity!!.supportFragmentManager)
-        adapter.addFragment(newsFragment, "NEWS")
-        adapter.addFragment(profileFragment, "PROFILE")
+        adapter.addFragment(newsFragment, getString(TabTitle.News.stringId))
+        adapter.addFragment(profileFragment, getString(TabTitle.Profile.stringId))
         vHomeViewPager.adapter = adapter
         vTabLayout.apply {
             vTabLayout.setupWithViewPager(vHomeViewPager)
-            getTabAt(0)!!.setIcon(R.drawable.ic_news_list_selector).setText(getString(R.string.home_news_tab_title))
-            getTabAt(1)!!.setIcon(R.drawable.ic_profile_selector).setText(getString(R.string.home_profile_tab_title))
+            getTabAt(0)!!.setIcon(R.drawable.ic_news_list_selector).setText(getString(TabTitle.News.stringId))
+            getTabAt(1)!!.setIcon(R.drawable.ic_profile_selector).setText(getString(TabTitle.Profile.stringId))
         }
     }
 
     companion object {
         fun newInstance() = HomeFragment()
+    }
+
+    enum class TabTitle(val stringId: Int) {
+        News(R.string.home_news_tab_title),
+        Profile(R.string.home_profile_tab_title)
     }
 }

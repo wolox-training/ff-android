@@ -1,3 +1,3 @@
 package ar.com.wolox.android.example.model
 
-class New(var id: Int, var createdAt: String, var title: String, var picture: String, var text: String)
+data class New(val id: Int, val createdAt: String, val title: String, val picture: String, val text: String)

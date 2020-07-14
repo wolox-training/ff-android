@@ -2,6 +2,7 @@ package ar.com.wolox.android.example.ui.news
 
 import ar.com.wolox.android.example.model.New
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
+import kotlinx.android.synthetic.main.fragment_news.*
 import javax.inject.Inject
 
 class NewsPresenter @Inject constructor() : BasePresenter<NewsView>() {
@@ -15,5 +16,9 @@ class NewsPresenter @Inject constructor() : BasePresenter<NewsView>() {
             list.add(New(i, "15m", "Ali Connors", "Picture", "I'll be in your neighborhood doing errands ..."))
 
         view!!.fillNews(list)
+    }
+
+    fun onSwipeRefresh() {
+        view!!.refreshList()
     }
 }
