@@ -68,4 +68,15 @@
     <dimen name="home_header_margin">10dp</dimen>
     <dimen name="home_tab_width">200dp</dimen>
     <dimen name="home_tab_height">30dp</dimen>
+
+    <!-- News tab -->
+    <dimen name="new_image_height">80dp</dimen>
+    <dimen name="new_image_width">80dp</dimen>
+    <dimen name="news_margin">20dp</dimen>
+    <dimen name="news_vertical_margin">25dp</dimen>
+    <dimen name="news_text_vertical_margin">10dp</dimen>
+    <dimen name="news_text_width">200dp</dimen>
+    <dimen name="news_title_margin">35dp</dimen>
+    <dimen name="news_like_button_dimen">30dp</dimen>
+
 </resources>

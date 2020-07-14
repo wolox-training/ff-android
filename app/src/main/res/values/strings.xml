@@ -43,4 +43,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- News tab -->
+    <string name="news_title">Ali Connors</string>
+    <string name="news_text">I\'ll be in your neighborhood doing errands ...</string>
+    <string name="news_time_ago">15m</string>
+
 </resources>
