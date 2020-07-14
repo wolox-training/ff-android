@@ -7,12 +7,14 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 class HomeFragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     private val mFragmentList: ArrayList<Fragment> = ArrayList()
+    private val mFragmentListNames: ArrayList<String> = ArrayList()
 
     override fun getItem(position: Int) = mFragmentList[position]
 
     override fun getCount() = mFragmentList.size
 
-    fun addFragment(fragment: Fragment) {
+    fun addFragment(fragment: Fragment, tabName: String) {
         mFragmentList.add(fragment)
+        mFragmentListNames.add(tabName)
     }
 }
