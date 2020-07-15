@@ -18,8 +18,7 @@ class HomeFragment : WolmoFragment<HomePresenter>(), HomeView {
     override fun layout() = R.layout.fragment_home
 
     override fun init() {
-        val adapter = HomeFragmentAdapter(activity!!.supportFragmentManager)
-        adapter.apply {
+        val adapter = HomeFragmentAdapter(activity!!.supportFragmentManager).apply {
             addFragment(newsFragment, getString(TabTitle.News.stringId))
             addFragment(profileFragment, getString(TabTitle.Profile.stringId))
         }
