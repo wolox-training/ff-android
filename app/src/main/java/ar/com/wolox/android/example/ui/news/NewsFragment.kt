@@ -17,9 +17,9 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     override fun layout() = R.layout.fragment_news
 
     override fun init() {
-        vNewsRecyclerView.apply {
-            vNewsRecyclerView.layoutManager = LinearLayoutManager(activity)
-            vNewsRecyclerView.adapter = newsAdapter
+        with(vNewsRecyclerView) {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = newsAdapter
         }
         presenter.fillList()
         vSwipeRefresh.setOnRefreshListener { presenter.onSwipeRefresh() }
@@ -30,8 +30,10 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     }
 
     override fun fillNews(newsList: List<New>) {
-        newsAdapter.fillList(newsList)
-        newsAdapter.notifyDataSetChanged()
+        with(newsAdapter) {
+            fillList(newsList)
+            notifyDataSetChanged()
+        }
         vSwipeRefresh.isRefreshing = false
     }
 

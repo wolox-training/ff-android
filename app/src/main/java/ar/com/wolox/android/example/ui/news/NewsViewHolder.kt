@@ -13,8 +13,8 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var newLike = view.vLike
 
     fun populate(new: New) {
-        this.newTitle.text = new.title
-        this.newText.text = new.text
-        this.newTimeAgo.text = new.createdAt
+        newTitle.text = new.title
+        newText.text = new.text
+        newTimeAgo.text = new.createdAt
     }
 }

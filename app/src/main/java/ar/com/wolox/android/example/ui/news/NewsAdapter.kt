@@ -10,7 +10,7 @@ import ar.com.wolox.android.example.model.New
 class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
 
     private lateinit var view: View
-    var newsList = ArrayList<New>()
+    var news = ArrayList<New>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         view = LayoutInflater.from(parent.context).inflate(R.layout.new_item, parent, false)
@@ -18,13 +18,13 @@ class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.populate(newsList[position])
+        holder.populate(news[position])
     }
 
-    override fun getItemCount() = newsList.size
+    override fun getItemCount() = news.size
 
     fun fillList(news: List<New>) {
-        this.newsList.clear()
-        this.newsList.addAll(news)
+        this.news.clear()
+        this.news.addAll(news)
     }
 }

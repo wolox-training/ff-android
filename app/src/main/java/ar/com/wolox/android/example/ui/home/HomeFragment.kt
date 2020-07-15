@@ -19,8 +19,10 @@ class HomeFragment : WolmoFragment<HomePresenter>(), HomeView {
 
     override fun init() {
         val adapter = HomeFragmentAdapter(activity!!.supportFragmentManager)
-        adapter.addFragment(newsFragment, getString(TabTitle.News.stringId))
-        adapter.addFragment(profileFragment, getString(TabTitle.Profile.stringId))
+        adapter.apply {
+            addFragment(newsFragment, getString(TabTitle.News.stringId))
+            addFragment(profileFragment, getString(TabTitle.Profile.stringId))
+        }
         vHomeViewPager.adapter = adapter
         vTabLayout.apply {
             vTabLayout.setupWithViewPager(vHomeViewPager)
