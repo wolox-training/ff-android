@@ -24,7 +24,7 @@ class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
     override fun getItemCount() = news.size
 
     fun fillList(newsToFill: List<New>) {
-        with(this.news) {
+        with(news) {
             clear()
             addAll(newsToFill)
         }
