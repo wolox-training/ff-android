@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/vNewPhoto"
+        android:layout_width="@dimen/new_image_height"
+        android:layout_height="@dimen/new_image_height"
+        android:layout_margin="@dimen/news_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/wolox_logo" />
+
+    <TextView
+        android:id="@+id/vNewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/news_margin"
+        android:layout_marginVertical="@dimen/news_title_margin"
+        app:layout_constraintStart_toEndOf="@id/vNewPhoto"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/news_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/vNewText"
+        android:layout_width="@dimen/news_text_width"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/vNewTitle"
+        app:layout_constraintStart_toEndOf="@id/vNewPhoto"
+        android:layout_marginHorizontal="@dimen/news_margin"
+        android:layout_marginVertical="@dimen/news_text_vertical_margin"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/news_text" />
+
+    <TextView
+        android:id="@+id/vTimeAgo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/news_margin"
+        android:text="@string/news_time_ago" />
+
+    <ToggleButton
+        android:id="@+id/vLike"
+        android:layout_width="@dimen/news_like_button_dimen"
+        android:layout_height="@dimen/news_like_button_dimen"
+        app:layout_constraintTop_toBottomOf="@id/vTimeAgo"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="@dimen/news_margin"
+        android:layout_marginVertical="@dimen/news_vertical_margin"
+        android:background="@null"
+        android:textOn=""
+        android:textOff=""
+        android:button="@drawable/ic_like_selector" />
+
+    <View
+        android:id="@+id/vNewDivisionLine"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spacing_tiniest"
+        android:layout_margin="@dimen/news_margin"
+        app:layout_constraintTop_toBottomOf="@id/vNewPhoto"
+        android:background="@color/homeTabDivisionLine"
+        android:layout_marginBottom="@dimen/spacing_tiniest" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

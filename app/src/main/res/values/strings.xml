@@ -40,5 +40,11 @@
     <string name="home_header_title">Wolox</string>
     <string name="home_news_tab_title">News</string>
     <string name="home_profile_tab_title">Profile</string>
+    <string name="hello_blank_fragment">Profile view</string>
+
+    <!-- News tab -->
+    <string name="news_title">Ali Connors</string>
+    <string name="news_text">I\'ll be in your neighborhood doing errands ...</string>
+    <string name="news_time_ago">15m</string>
 
 </resources>
