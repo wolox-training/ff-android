@@ -21,12 +21,6 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
 
-    dexOptions {
-        incremental = true;
-        preDexLibraries = false;
-        javaMaxHeapSize "4g"
-    }
-
     defaultConfig {
         applicationId "ar.com.wolox.android.example"
         minSdkVersion 19

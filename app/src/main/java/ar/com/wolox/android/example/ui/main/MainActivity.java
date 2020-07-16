@@ -2,8 +2,6 @@ package ar.com.wolox.android.example.ui.main;
 
 import android.content.Intent;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-
 import javax.inject.Inject;
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
@@ -26,7 +24,6 @@ public class MainActivity extends WolmoActivity {
 
     @Override
     protected void init() {
-        Fresco.initialize(this);
         checkUserSession();
     }
 
