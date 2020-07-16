@@ -35,12 +35,12 @@
 
     <!-- Dummy screens -->
     <string name="sign_up_fragment_text">Sign Up</string>
+    <string name="hello_blank_fragment">Profile view</string>
 
     <!-- Home screen -->
     <string name="home_header_title">Wolox</string>
     <string name="home_news_tab_title">News</string>
     <string name="home_profile_tab_title">Profile</string>
-    <string name="hello_blank_fragment">Profile view</string>
 
     <!-- News tab -->
     <string name="news_title">Ali Connors</string>

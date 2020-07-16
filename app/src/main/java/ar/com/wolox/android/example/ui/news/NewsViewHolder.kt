@@ -1,7 +1,5 @@
 package ar.com.wolox.android.example.ui.news
 
-import android.net.Uri
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.example.model.New
@@ -21,9 +19,8 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         with(new) {
             newTitle.text = title
             newText.text = text
-            Log.d("ADGJASKFJHAKSJDASGKLJASDKA", createdAt)
             newTimeAgo.text = formatTime(createdAt)
-            newPhoto.setImageURI(Uri.parse(new.picture))
+            newPhoto.setImageURI(new.picture)
         }
     }
 
