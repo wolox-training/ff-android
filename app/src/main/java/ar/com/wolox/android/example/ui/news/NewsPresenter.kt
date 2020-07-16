@@ -12,8 +12,6 @@ import javax.inject.Inject
 
 class NewsPresenter @Inject constructor(private val retrofitService: RetrofitServices) : BasePresenter<NewsView>() {
 
-    private val times: Int = 10
-
     fun fillList() {
         val serviceCall = retrofitService?.getService(NewsService::class.java).loadNews()
         serviceCall.enqueue(object : Callback<List<New>> {
