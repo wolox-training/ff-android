@@ -17,6 +17,7 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             newTitle.text = title
             newText.text = text
             newTimeAgo.text = createdAt
+            newPhoto.setImageURI(new.picture)
         }
     }
 }

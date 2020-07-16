@@ -1,5 +1,6 @@
 package ar.com.wolox.android.example.ui.news
 
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
@@ -40,5 +41,17 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     override fun refreshList() {
         vSwipeRefresh.isRefreshing = true
         presenter.fillList()
+    }
+
+    override fun showEmptyNewsError() {
+        showToastNotification(R.string.empty_news_error)
+    }
+
+    override fun showExternalError() {
+        showToastNotification(R.string.news_service_error)
+    }
+
+    private fun showToastNotification(messageId: Int) {
+        Toast.makeText(activity, messageId, Toast.LENGTH_LONG).show()
     }
 }

@@ -46,5 +46,7 @@
     <string name="news_title">Ali Connors</string>
     <string name="news_text">I\'ll be in your neighborhood doing errands ...</string>
     <string name="news_time_ago">15m</string>
+    <string name="empty_news_error">No news to show :(</string>
+    <string name="news_service_error">Error trying to connect to the service</string>
 
 </resources>
