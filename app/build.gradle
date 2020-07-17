@@ -110,6 +110,8 @@ buildscript {
     ext.retrofit_version = "2.9.0"
     ext.swiperefreshlayout_version = "1.0.0"
     ext.fab_version = "1.3.0"
+    ext.fresco_version = "2.2.0"
+    ext.pretty_time_version = "4.0.4.Final"
 }
 
 dependencies {
@@ -161,4 +163,11 @@ dependencies {
 
     // Floating action button
     implementation "com.melnykov:floatingactionbutton:$fab_version"
+
+    // Fresco
+    implementation "com.facebook.fresco:fresco:$fresco_version"
+
+    // PrettyTime formatter
+    implementation "org.ocpsoft.prettytime:prettytime:$pretty_time_version"
+
 }
