@@ -29,4 +29,9 @@ class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
             addAll(newsToFill)
         }
     }
+
+    fun addNews(newsToAdd: List<New>) {
+        news.addAll(newsToAdd)
+        notifyDataSetChanged()
+    }
 }

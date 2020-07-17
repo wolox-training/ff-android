@@ -12,6 +12,8 @@ import javax.inject.Inject
 
 class NewsPresenter @Inject constructor(private val retrofitService: RetrofitServices) : BasePresenter<NewsView>() {
 
+    var news: List<New> = ArrayList()
+
     fun fillList() {
         val serviceCall = retrofitService?.getService(NewsService::class.java).loadNews()
         serviceCall.enqueue(object : Callback<List<New>> {
@@ -19,7 +21,8 @@ class NewsPresenter @Inject constructor(private val retrofitService: RetrofitSer
                 if (response.body()!!.isEmpty()) {
                     view!!.showEmptyNewsError()
                 } else {
-                    view!!.fillNews(response.body()!!)
+                    news = response.body()!!
+                    view!!.fillNews(news)
                 }
             }
 
@@ -31,5 +34,9 @@ class NewsPresenter @Inject constructor(private val retrofitService: RetrofitSer
 
     fun onSwipeRefresh() {
         view!!.refreshList()
+    }
+
+    fun addItemsToEndOfList() {
+        view!!.addMoreNews(news)
     }
 }

@@ -2,6 +2,7 @@ package ar.com.wolox.android.example.ui.news
 
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
@@ -24,10 +25,21 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
         }
         presenter.fillList()
         vSwipeRefresh.setOnRefreshListener { presenter.onSwipeRefresh() }
+
+        vNewsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                if (layoutManager.itemCount <= layoutManager.findLastVisibleItemPosition() + threshold) {
+                    presenter.addItemsToEndOfList()
+                }
+            }
+        })
     }
 
     companion object {
         fun newInstance() = NewsFragment()
+        private const val threshold = 3
     }
 
     override fun fillNews(newsList: List<New>) {
@@ -49,6 +61,10 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
 
     override fun showExternalError() {
         showToastNotification(R.string.news_service_error)
+    }
+
+    override fun addMoreNews(news: List<New>) {
+        newsAdapter!!.addNews(news)
     }
 
     private fun showToastNotification(messageId: Int) {

@@ -7,4 +7,5 @@ interface NewsView {
     fun refreshList()
     fun showEmptyNewsError()
     fun showExternalError()
+    fun addMoreNews(news: List<New>)
 }
