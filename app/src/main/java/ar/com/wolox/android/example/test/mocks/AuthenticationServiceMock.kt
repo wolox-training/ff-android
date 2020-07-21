@@ -4,6 +4,7 @@ import ar.com.wolox.android.example.externalServices.AuthenticationService
 import ar.com.wolox.android.example.model.User
 import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.EMAIL
 import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.PASSWORD
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.WRONG_EMAIL
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
@@ -15,6 +16,7 @@ class AuthenticationServiceMock {
 
     companion object {
         private fun successfulResponse(): List<User> = listOf(User(EMAIL, PASSWORD))
+        private fun unsuccessfulResponse(): List<User> = emptyList()
 
         fun successfulLogin(): AuthenticationService {
             val describedService = mock(AuthenticationService::class.java)
@@ -23,7 +25,12 @@ class AuthenticationServiceMock {
             return describedService
         }
 
-        fun failedLogin() : List<User> = emptyList()
+        fun unsuccessfulLogin(): AuthenticationService {
+            val describedService = mock(AuthenticationService::class.java)
+            val mockedCall = performMockedCall(unsuccessfulResponse())
+            `when`(describedService.findUser(WRONG_EMAIL)).thenReturn(mockedCall)
+            return describedService
+        }
 
         private fun performMockedCall(response: List<User>): Call<List<User>> {
             val call: Call<List<User>> = mock(Call::class.java) as Call<List<User>>

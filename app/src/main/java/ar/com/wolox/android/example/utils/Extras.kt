@@ -25,5 +25,7 @@ object Extras {
         const val INVALID_EMAIL = "invalidEmail"
         const val INVALID_PASSWORD = ""
         const val EMPTY_EMAIL = ""
+        const val WRONG_EMAIL = "wrong@email.com"
+        const val WRONG_PASSWORD = "invalidPassword"
     }
 }

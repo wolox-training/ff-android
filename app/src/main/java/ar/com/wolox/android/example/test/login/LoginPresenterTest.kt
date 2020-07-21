@@ -9,6 +9,8 @@ import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.EMPTY
 import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.INVALID_EMAIL
 import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.INVALID_PASSWORD
 import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.PASSWORD
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.WRONG_EMAIL
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.WRONG_PASSWORD
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.tests.WolmoPresenterTest
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
@@ -50,15 +52,25 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
     fun serviceSuccessfulRequest() {
         val authenticationService = AuthenticationServiceMock.successfulLogin()
         `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
-
         presenter.onLoginButtonClicked(EMAIL, PASSWORD)
-
         verify(view, times(1)).goToHomeScreen()
     }
 
     @Test
-    fun serviceInvalidEmailRequest() {
-        val authenticationService = AuthenticationServiceMock.failedLogin()
+    fun serviceWrongEmailRequest() {
+        val authenticationService = AuthenticationServiceMock.unsuccessfulLogin()
         `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
+        presenter.onLoginButtonClicked(WRONG_EMAIL, PASSWORD)
+        verify(view, times(0)).goToHomeScreen()
+        verify(view, times(1)).showCredentialsError()
+    }
+
+    @Test
+    fun serviceWrongPasswordRequest() {
+        val authenticationService = AuthenticationServiceMock.successfulLogin()
+        `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
+        presenter.onLoginButtonClicked(EMAIL, WRONG_PASSWORD)
+        verify(view, times(0)).goToHomeScreen()
+        verify(view, times(1)).showCredentialsError()
     }
 }
