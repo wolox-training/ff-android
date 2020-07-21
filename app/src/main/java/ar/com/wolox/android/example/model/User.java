@@ -24,12 +24,4 @@ public class User {
     public String getPassword() {
         return this.password;
     }
-
-    public void setEmail(@NonNull String email) {
-        this.email = email;
-    }
-
-    public void setPassword(@NonNull String password) {
-        this.password = password;
-    }
 }
