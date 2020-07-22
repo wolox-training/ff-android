@@ -31,25 +31,25 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
     override fun getPresenterInstance() = LoginPresenter(userSession, retrofitServices)
 
     @Test
-    fun invalidEmailTest() {
+    fun `given an invalid email then an error is displayed`() {
         presenter.onLoginButtonClicked(INVALID_EMAIL, PASSWORD)
         verify(view, times(1)).showInvalidEmailError()
     }
 
     @Test
-    fun invalidPasswordTest() {
+    fun `given an empty password then an error is displayed`() {
         presenter.onLoginButtonClicked(EMAIL, INVALID_PASSWORD)
         verify(view, times(1)).showEmptyPasswordError()
     }
 
     @Test
-    fun emptyEmailTest() {
+    fun `given an empty email then an error is displayed`() {
         presenter.onLoginButtonClicked(EMPTY_EMAIL, PASSWORD)
         verify(view, times(1)).showEmptyEmailError()
     }
 
     @Test
-    fun serviceSuccessfulRequest() {
+    fun `given correct credentials then the user is logged and redirected to the home screen`() {
         val authenticationService = AuthenticationServiceMock.successfulLogin()
         `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
         presenter.onLoginButtonClicked(EMAIL, PASSWORD)
@@ -57,7 +57,7 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
     }
 
     @Test
-    fun serviceWrongEmailRequest() {
+    fun `given a wrong email then the user is not logged and a toast error message is displayed`() {
         val authenticationService = AuthenticationServiceMock.unsuccessfulLogin()
         `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
         presenter.onLoginButtonClicked(WRONG_EMAIL, PASSWORD)
@@ -66,7 +66,7 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
     }
 
     @Test
-    fun serviceWrongPasswordRequest() {
+    fun `given a correct email and a wrong password then the user is not logged and a toast message is displayed`() {
         val authenticationService = AuthenticationServiceMock.successfulLogin()
         `when`(retrofitServices.getService(AuthenticationService::class.java)).thenReturn(authenticationService)
         presenter.onLoginButtonClicked(EMAIL, WRONG_PASSWORD)
