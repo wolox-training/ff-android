@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
 
-class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
+class NewsAdapter(private val listener: NewsView) : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
 
     private lateinit var view: View
     var news = ArrayList<New>()
@@ -18,6 +18,12 @@ class NewsAdapter : ListAdapter<New, NewsViewHolder>(NewsDiffUtil()) {
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        var new = news[position]
+        holder.apply {
+            layout.setOnClickListener {
+                listener.onNewClick(new)
+            }
+        }
         holder.populate(news[position])
     }
 

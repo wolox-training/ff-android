@@ -14,6 +14,7 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var newText = view.vNewText
     var newTimeAgo = view.vTimeAgo
     var newLike = view.vLike
+    var layout = view.vNewContainer
 
     fun populate(new: New) {
         with(new) {
