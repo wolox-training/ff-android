@@ -38,10 +38,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
         })
     }
 
-    override fun setListeners() {
-
-    }
-
     override fun fillNews(newsList: List<New>) {
         with(newsAdapter) {
             fillList(newsList)

@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/vSwipeRefresh"
+    <!-- <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/vNewDetailSwipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent" > -->
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/new_detail_image"
+            android:id="@+id/vNewDetailImage"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:background="@android:color/darker_gray"
@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/new_detail_title"
+            android:id="@+id/vNewDetailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -30,10 +30,10 @@
             android:textSize="35sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_detail_image" />
+            app:layout_constraintTop_toBottomOf="@id/vNewDetailImage" />
 
         <TextView
-            android:id="@+id/new_detail_time_ago"
+            android:id="@+id/vNewDetailTimeAgo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -43,10 +43,10 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_detail_image" />
+            app:layout_constraintTop_toBottomOf="@id/vNewDetailImage" />
 
         <TextView
-            android:id="@+id/new_detail_body"
+            android:id="@+id/vNewDetailBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -55,9 +55,10 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/new_detail_title" />
+            app:layout_constraintTop_toBottomOf="@+id/vNewDetailTitle" />
 
         <ToggleButton
+            android:id="@+id/vNewDetailLike"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="40dp"
@@ -67,8 +68,8 @@
             android:textOn=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_detail_body" />
+            app:layout_constraintTop_toBottomOf="@id/vNewDetailBody" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <!-- </androidx.swiperefreshlayout.widget.SwipeRefreshLayout> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
