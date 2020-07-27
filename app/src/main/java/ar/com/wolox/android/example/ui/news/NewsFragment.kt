@@ -1,5 +1,7 @@
 package ar.com.wolox.android.example.ui.news
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,7 @@ import javax.inject.Inject
  */
 class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsView {
 
+    private lateinit var sharedPreferences: SharedPreferences
     private var newsAdapter = NewsAdapter(this)
 
     override fun layout() = R.layout.fragment_news
@@ -64,7 +67,7 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     }
 
     override fun onNewClick(new: New) {
-        NewDetailActivity.start(requireContext(), new)
+        NewDetailActivity.start(requireContext(), new, context?.getSharedPreferences("ar.com.wolox.android.example.ui.login", Context.MODE_PRIVATE)!!.getInt("user_id", 0))
     }
 
     private fun showToastNotification(messageId: Int) {

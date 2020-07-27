@@ -49,4 +49,7 @@
     <string name="empty_news_error">No news to show :(</string>
     <string name="news_service_error">Error trying to connect to the service</string>
 
+    <!-- New details -->
+    <string name="new_details_failure">There was an error loading this new</string>
+
 </resources>
