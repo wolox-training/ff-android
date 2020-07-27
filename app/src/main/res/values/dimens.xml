@@ -79,4 +79,20 @@
     <dimen name="news_title_margin">35dp</dimen>
     <dimen name="news_like_button_dimen">30dp</dimen>
 
+    <!-- New detail -->
+    <dimen name="new_detail_header_elevation">2dp</dimen>
+    <dimen name="new_detail_back_margin">20dp</dimen>
+    <dimen name="new_detail_header_text_margin">10dp</dimen>
+    <dimen name="new_detail_header_text_size">30sp</dimen>
+    <dimen name="new_detail_image_height">350dp</dimen>
+    <dimen name="new_detail_title_size">35sp</dimen>
+    <dimen name="new_detail_title_vertical_margin">30dp</dimen>
+    <dimen name="new_detail_text_horizontal_margin">15dp</dimen>
+    <dimen name="new_detail_time_size">15sp</dimen>
+    <dimen name="new_detail_time_vertical_margin">30dp</dimen>
+    <dimen name="new_detail_body_text_size">17sp</dimen>
+    <dimen name="new_detail_toggle_button_width">40dp</dimen>
+    <dimen name="new_detail_toggle_button_margin">40dp</dimen>
+
+
 </resources>
