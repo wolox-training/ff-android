@@ -18,7 +18,6 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 
     override fun getPresenterInstance() = LoginPresenter(userSession, retrofitServices)
 
-    /*
     @Test
     fun `given an invalid email then an error is displayed`() {
         presenter.onLoginButtonClicked(INVALID_EMAIL, PASSWORD)
@@ -62,5 +61,4 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
         verify(view, times(0)).goToHomeScreen()
         verify(view, times(1)).showCredentialsError()
     }
-    */
 }
