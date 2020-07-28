@@ -11,21 +11,30 @@ import javax.inject.Inject
 
 class NewDetailPresenter @Inject constructor(private val retrofitServices: RetrofitServices) : BasePresenter<NewDetailView>() {
 
+    private lateinit var new: New
+    private var userId: Int? = null
+
     private var isLoading: Boolean = false
         set(value) {
             field = value
             view?.showLoadingIcon(value)
         }
 
-    fun onSwipeRefresh(newId: Int) {
-        isLoading = true
-        reloadNewDetails(newId)
+    fun onInit(new: New, userId: Int) {
+        this.new = new
+        this.userId = userId
+        view?.inflateNew(new)
     }
 
-    fun onLikeClick(userId: Int?, newId: Int) {
+    fun onSwipeRefresh() {
+        isLoading = true
+        reloadNewDetails()
+    }
+
+    fun onLikeClick() {
         isLoading = true
 
-        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(newId)
+        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(new.id)
         call.enqueue(object : Callback<List<New>> {
             override fun onFailure(call: Call<List<New>>, t: Throwable) {
                 isLoading = false
@@ -45,8 +54,8 @@ class NewDetailPresenter @Inject constructor(private val retrofitServices: Retro
         })
     }
 
-    private fun reloadNewDetails(newId: Int) {
-        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(newId)
+    private fun reloadNewDetails() {
+        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(new.id)
         call.enqueue(object : Callback<List<New>> {
             override fun onFailure(call: Call<List<New>>, t: Throwable) {
                 isLoading = false

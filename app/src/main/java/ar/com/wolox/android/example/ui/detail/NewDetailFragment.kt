@@ -17,20 +17,20 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
     private var userId: Int? = null
 
     override fun init() {
-        new = arguments?.getSerializable(NEWS) as New
-        userId = arguments?.getSerializable(USER_ID) as Int
-        inflateNew(new)
+        var new = arguments?.getSerializable(NEWS) as New
+        var userId = arguments?.getSerializable(USER_ID) as Int
+        presenter.onInit(new, userId)
     }
 
     override fun layout() = R.layout.fragment_new_detail
 
     override fun setListeners() {
         vNewDetailSwipeRefresh.setOnRefreshListener {
-            presenter.onSwipeRefresh(new.id)
+            presenter.onSwipeRefresh()
         }
 
         vNewDetailLike.setOnClickListener {
-            presenter.onLikeClick(userId, new.id)
+            presenter.onLikeClick()
         }
 
         vNewDetailHeaderBack.setOnClickListener {
@@ -38,7 +38,7 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
         }
     }
 
-    private fun inflateNew(new: New) {
+    override fun inflateNew(new: New) {
         with(new) {
             vNewDetailTitle.text = title
             vNewDetailBody.text = text
