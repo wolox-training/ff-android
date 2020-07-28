@@ -19,12 +19,12 @@ class NewsAdapter(private val listener: NewsView) : ListAdapter<New, NewsViewHol
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         var new = news[position]
-        holder.apply {
+        with(holder) {
             layout.setOnClickListener {
                 listener.onNewClick(new)
             }
+            populate(news[position])
         }
-        holder.populate(news[position])
     }
 
     override fun getItemCount() = news.size

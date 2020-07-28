@@ -20,18 +20,17 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
         new = arguments?.getSerializable(NEWS) as New
         userId = arguments?.getSerializable(USER_ID) as Int
         inflateNew(new)
-        presenter.setDisplayedNew(new)
     }
 
     override fun layout() = R.layout.fragment_new_detail
 
     override fun setListeners() {
         vNewDetailSwipeRefresh.setOnRefreshListener {
-            presenter.onSwipeRefresh()
+            presenter.onSwipeRefresh(new.id)
         }
 
         vNewDetailLike.setOnClickListener {
-            presenter.onLikeClick(userId)
+            presenter.onLikeClick(userId, new.id)
         }
 
         vNewDetailHeaderBack.setOnClickListener {
@@ -50,24 +49,10 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
     }
 
     private fun formatTime(date: String): String? {
-        val formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        val formatter = DateTimeFormat.forPattern(DATE_PATTERN)
         val dateTime = formatter.parseDateTime(date)
         val prettyTime = PrettyTime(Locale.getDefault())
         return prettyTime.format(dateTime.toDate())
-    }
-
-    companion object {
-        private const val NEWS = "news"
-        private const val USER_ID = "userId"
-
-        fun newInstance(new: New, userId: Int): NewDetailFragment {
-            val arguments = Bundle()
-            arguments.putSerializable(NEWS, new)
-            arguments.putSerializable(USER_ID, userId)
-            val fragment = NewDetailFragment()
-            fragment.arguments = arguments
-            return fragment
-        }
     }
 
     override fun showLoadingIcon(isLoading: Boolean) {
@@ -85,5 +70,22 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
 
     override fun reloadNewDetails(new: New) {
         inflateNew(new)
+    }
+
+    companion object {
+        private const val NEWS = "news"
+        private const val USER_ID = "userId"
+        private const val DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
+        fun newInstance(new: New, userId: Int): NewDetailFragment {
+            val arguments = Bundle()
+            arguments.apply {
+                putSerializable(NEWS, new)
+                putSerializable(USER_ID, userId)
+            }
+            val fragment = NewDetailFragment()
+            fragment.arguments = arguments
+            return fragment
+        }
     }
 }

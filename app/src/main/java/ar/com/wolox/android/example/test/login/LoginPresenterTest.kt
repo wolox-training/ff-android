@@ -1,12 +1,24 @@
 package ar.com.wolox.android.example.test.login
 
+import ar.com.wolox.android.example.externalServices.AuthenticationService
+import ar.com.wolox.android.example.test.mocks.AuthenticationServiceMock
 import ar.com.wolox.android.example.ui.login.LoginPresenter
 import ar.com.wolox.android.example.ui.login.LoginView
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.EMAIL
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.EMPTY_EMAIL
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.INVALID_EMAIL
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.INVALID_PASSWORD
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.PASSWORD
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.WRONG_EMAIL
+import ar.com.wolox.android.example.utils.Extras.AuthenticationCredentials.WRONG_PASSWORD
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.tests.WolmoPresenterTest
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
+import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
+import org.mockito.Mockito.`when`
 
 class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 

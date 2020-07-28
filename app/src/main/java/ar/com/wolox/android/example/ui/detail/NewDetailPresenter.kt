@@ -11,26 +11,21 @@ import javax.inject.Inject
 
 class NewDetailPresenter @Inject constructor(private val retrofitServices: RetrofitServices) : BasePresenter<NewDetailView>() {
 
-    private lateinit var displayedNew: New
     private var isLoading: Boolean = false
         set(value) {
             field = value
             view?.showLoadingIcon(value)
         }
 
-    fun setDisplayedNew(new: New) {
-        displayedNew = new
+    fun onSwipeRefresh(newId: Int) {
+        isLoading = true
+        reloadNewDetails(newId)
     }
 
-    fun onSwipeRefresh() {
-        isLoading = true
-        reloadNewDetails()
-    }
-
-    fun onLikeClick(userId: Int?) {
+    fun onLikeClick(userId: Int?, newId: Int) {
         isLoading = true
 
-        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(displayedNew.id)
+        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(newId)
         call.enqueue(object : Callback<List<New>> {
             override fun onFailure(call: Call<List<New>>, t: Throwable) {
                 isLoading = false
@@ -50,8 +45,8 @@ class NewDetailPresenter @Inject constructor(private val retrofitServices: Retro
         })
     }
 
-    private fun reloadNewDetails() {
-        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(displayedNew.id)
+    private fun reloadNewDetails(newId: Int) {
+        val call = retrofitServices.getService(NewsService::class.java).retrieveNew(newId)
         call.enqueue(object : Callback<List<New>> {
             override fun onFailure(call: Call<List<New>>, t: Throwable) {
                 isLoading = false

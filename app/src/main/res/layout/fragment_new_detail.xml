@@ -8,6 +8,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
         <LinearLayout
             android:id="@+id/vNewDetailHeader"
             android:layout_width="match_parent"
@@ -102,6 +103,9 @@
                     app:layout_constraintTop_toBottomOf="@id/vNewDetailBody" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
+
     </FrameLayout>
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

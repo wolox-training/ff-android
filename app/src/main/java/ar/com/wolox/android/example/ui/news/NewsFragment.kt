@@ -1,6 +1,5 @@
 package ar.com.wolox.android.example.ui.news
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,7 +33,7 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                if (layoutManager.itemCount <= layoutManager.findLastVisibleItemPosition() + threshold) {
+                if (layoutManager.itemCount <= layoutManager.findLastVisibleItemPosition() + THRESHOLD) {
                     presenter.addItemsToEndOfList()
                 }
             }
@@ -67,7 +66,7 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     }
 
     override fun onNewClick(new: New) {
-        NewDetailActivity.start(requireContext(), new, context?.getSharedPreferences("ar.com.wolox.android.example.ui.login", Context.MODE_PRIVATE)!!.getInt("user_id", 0))
+        NewDetailActivity.start(requireContext(), new)
     }
 
     private fun showToastNotification(messageId: Int) {
@@ -76,6 +75,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
 
     companion object {
         fun newInstance() = NewsFragment()
-        private const val threshold = 3
+        private const val THRESHOLD = 3
     }
 }
