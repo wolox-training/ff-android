@@ -19,17 +19,17 @@ class NewDetailActivity @Inject constructor() : WolmoActivity() {
 
     companion object {
         fun start(context: Context, new: New) {
-            var userId = context.getSharedPreferences(USER_ID, Context.MODE_PRIVATE)!!.getInt("user_id", 0)
+            var userId = context.getSharedPreferences(USER_ID, Context.MODE_PRIVATE)!!.getInt(USER_ID_PREF_KEY, 0)
             val intent = Intent(context, NewDetailActivity::class.java)
             intent.apply {
                 putExtra(NEWS, new)
                 putExtra(USER_ID, userId)
             }
-            // context?.getSharedPreferences("ar.com.wolox.android.example.ui.login", Context.MODE_PRIVATE)!!.getInt("user_id", 0)
             context.startActivity(intent)
         }
 
         private const val NEWS = "news"
         private const val USER_ID = "userId"
+        private const val USER_ID_PREF_KEY = "user_id"
     }
 }
