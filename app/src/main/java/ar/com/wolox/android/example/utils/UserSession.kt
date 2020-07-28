@@ -27,6 +27,14 @@ class UserSession @Inject constructor(private val sharedPreferencesManager: Shar
             field = password
             sharedPreferencesManager.store(Extras.UserLogin.PASSWORD, password)
         }
+    var userId: Int? = null
+        get() = field ?: sharedPreferencesManager[Extras.UserLogin.USER_ID, 0]. also {
+            field = it
+        }
+        set(userId) {
+            field = userId
+            sharedPreferencesManager.store(Extras.UserLogin.USER_ID, userId!!)
+        }
 
     val isUserLogged: Boolean = username != null && password != null
 }

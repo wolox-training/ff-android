@@ -1,10 +1,12 @@
 package ar.com.wolox.android.example.ui.news
 
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
+import ar.com.wolox.android.example.ui.detail.NewDetailActivity
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import kotlinx.android.synthetic.main.fragment_news.*
 import javax.inject.Inject
@@ -14,7 +16,8 @@ import javax.inject.Inject
  */
 class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsView {
 
-    private var newsAdapter = NewsAdapter()
+    private lateinit var sharedPreferences: SharedPreferences
+    private var newsAdapter = NewsAdapter(this)
 
     override fun layout() = R.layout.fragment_news
 
@@ -30,16 +33,11 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                if (layoutManager.itemCount <= layoutManager.findLastVisibleItemPosition() + threshold) {
+                if (layoutManager.itemCount <= layoutManager.findLastVisibleItemPosition() + THRESHOLD) {
                     presenter.addItemsToEndOfList()
                 }
             }
         })
-    }
-
-    companion object {
-        fun newInstance() = NewsFragment()
-        private const val threshold = 3
     }
 
     override fun fillNews(newsList: List<New>) {
@@ -67,7 +65,16 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
         newsAdapter!!.addNews(news)
     }
 
+    override fun onNewClick(new: New) {
+        NewDetailActivity.start(requireContext(), new)
+    }
+
     private fun showToastNotification(messageId: Int) {
         Toast.makeText(activity, messageId, Toast.LENGTH_LONG).show()
+    }
+
+    companion object {
+        fun newInstance() = NewsFragment()
+        private const val THRESHOLD = 3
     }
 }

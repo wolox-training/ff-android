@@ -8,4 +8,5 @@ interface NewsView {
     fun showEmptyNewsError()
     fun showExternalError()
     fun addMoreNews(news: List<New>)
+    fun onNewClick(new: New)
 }

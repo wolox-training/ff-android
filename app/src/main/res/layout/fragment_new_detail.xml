@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vNewDetailSwipeRefresh"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/vNewDetailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/new_detail_header_elevation">
+
+            <ImageView
+                android:id="@+id/vNewDetailHeaderBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_margin="@dimen/new_detail_back_margin" />
+
+            <TextView
+                android:id="@+id/vNewDetailHeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post"
+                android:fontFamily="sans-serif"
+                android:textSize="@dimen/new_detail_header_text_size"
+                android:textStyle="bold"
+                android:layout_marginVertical="@dimen/new_detail_header_text_margin" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/vNewDetailImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/new_detail_image_height"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/vNewDetailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/new_detail_text_horizontal_margin"
+                    android:layout_marginVertical="@dimen/new_detail_title_vertical_margin"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/news_title"
+                    android:textColor="@color/woloxBlue"
+                    android:textSize="@dimen/new_detail_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vNewDetailImage" />
+
+                <TextView
+                    android:id="@+id/vNewDetailTimeAgo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/new_detail_text_horizontal_margin"
+                    android:layout_marginVertical="@dimen/new_detail_time_vertical_margin"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/news_time_ago"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/new_detail_time_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vNewDetailImage" />
+
+                <TextView
+                    android:id="@+id/vNewDetailBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/new_detail_text_horizontal_margin"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/news_text"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/new_detail_body_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vNewDetailTitle" />
+
+                <ToggleButton
+                    android:id="@+id/vNewDetailLike"
+                    android:layout_width="@dimen/new_detail_toggle_button_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/new_detail_toggle_button_margin"
+                    android:background="@null"
+                    android:button="@drawable/ic_like_large_selector"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vNewDetailBody" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

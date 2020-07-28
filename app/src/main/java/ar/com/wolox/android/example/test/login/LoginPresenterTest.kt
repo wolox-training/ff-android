@@ -16,9 +16,9 @@ import ar.com.wolox.wolmo.core.tests.WolmoPresenterTest
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
 import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
+import org.mockito.Mockito.`when`
 
 class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 

@@ -13,6 +13,7 @@ object Extras {
     object UserLogin {
         const val USERNAME = "username"
         const val PASSWORD = "password"
+        const val USER_ID = "userId"
     }
 
     object ViewPager {
