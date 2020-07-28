@@ -20,8 +20,7 @@ class NewDetailActivity @Inject constructor() : WolmoActivity() {
     companion object {
         fun start(context: Context, new: New) {
             var userId = context.getSharedPreferences(USER_ID, Context.MODE_PRIVATE)!!.getInt(USER_ID_PREF_KEY, 0)
-            val intent = Intent(context, NewDetailActivity::class.java)
-            intent.apply {
+            val intent = Intent(context, NewDetailActivity::class.java).apply {
                 putExtra(NEWS, new)
                 putExtra(USER_ID, userId)
             }

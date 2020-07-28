@@ -70,8 +70,7 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
         private const val USER_ID = "userId"
 
         fun newInstance(new: New, userId: Int): NewDetailFragment {
-            val arguments = Bundle()
-            arguments.apply {
+            val arguments = Bundle().apply {
                 putSerializable(NEWS, new)
                 putSerializable(USER_ID, userId)
             }

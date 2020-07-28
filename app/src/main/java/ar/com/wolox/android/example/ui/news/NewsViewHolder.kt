@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.example.model.New
 import ar.com.wolox.android.example.utils.DateUtil.Companion.formatDateTime
 import kotlinx.android.synthetic.main.new_item.view.*
-import org.joda.time.format.DateTimeFormat
 import org.ocpsoft.prettytime.PrettyTime
 import java.util.Locale
 
