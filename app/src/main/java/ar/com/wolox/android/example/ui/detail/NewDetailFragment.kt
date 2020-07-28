@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.New
+import ar.com.wolox.android.example.utils.DateUtil.Companion.formatDateTime
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import kotlinx.android.synthetic.main.fragment_new_detail.*
-import org.joda.time.format.DateTimeFormat
 import org.ocpsoft.prettytime.PrettyTime
 import java.util.Locale
 import javax.inject.Inject
@@ -42,17 +42,10 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
         with(new) {
             vNewDetailTitle.text = title
             vNewDetailBody.text = text
-            vNewDetailTimeAgo.text = formatTime(createdAt)
+            vNewDetailTimeAgo.text = PrettyTime(Locale.getDefault()).formatDateTime(createdAt)
             vNewDetailLike.isChecked = new.likes.contains(userId)
             vNewDetailImage.setImageURI(picture)
         }
-    }
-
-    private fun formatTime(date: String): String? {
-        val formatter = DateTimeFormat.forPattern(DATE_PATTERN)
-        val dateTime = formatter.parseDateTime(date)
-        val prettyTime = PrettyTime(Locale.getDefault())
-        return prettyTime.format(dateTime.toDate())
     }
 
     override fun showLoadingIcon(isLoading: Boolean) {
@@ -75,7 +68,6 @@ class NewDetailFragment @Inject constructor() : WolmoFragment<NewDetailPresenter
     companion object {
         private const val NEWS = "news"
         private const val USER_ID = "userId"
-        private const val DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
         fun newInstance(new: New, userId: Int): NewDetailFragment {
             val arguments = Bundle()

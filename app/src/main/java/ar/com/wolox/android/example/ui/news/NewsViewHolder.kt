@@ -3,6 +3,7 @@ package ar.com.wolox.android.example.ui.news
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.example.model.New
+import ar.com.wolox.android.example.utils.DateUtil.Companion.formatDateTime
 import kotlinx.android.synthetic.main.new_item.view.*
 import org.joda.time.format.DateTimeFormat
 import org.ocpsoft.prettytime.PrettyTime
@@ -20,15 +21,8 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         with(new) {
             newTitle.text = title
             newText.text = text
-            newTimeAgo.text = formatTime(createdAt)
+            newTimeAgo.text = PrettyTime(Locale.getDefault()).formatDateTime(createdAt)
             newPhoto.setImageURI(new.picture)
         }
-    }
-
-    private fun formatTime(date: String): String? {
-        val formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-        val dateTime = formatter.parseDateTime(date)
-        val prettyTime = PrettyTime(Locale.getDefault())
-        return prettyTime.format(dateTime.toDate())
     }
 }
